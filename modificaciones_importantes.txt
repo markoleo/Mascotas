@@ -1,0 +1,15 @@
+# Virtual Hosts
+#
+Aparte del original hay que poner este abajo para hacerlo funcionar en el virtual host
+<VirtualHost *:80>
+  ServerName petlocal
+  ServerAlias petlocal
+  DocumentRoot "${INSTALL_DIR}/www/pet"
+  <Directory "${INSTALL_DIR}/www/pet/">
+    Options +Indexes +Includes +FollowSymLinks +MultiViews
+    AllowOverride All
+    Require local
+  </Directory>
+</VirtualHost>
+
+en PHP hay que ir a php.ini y buscamos short y lo cambiamos de off a on 
